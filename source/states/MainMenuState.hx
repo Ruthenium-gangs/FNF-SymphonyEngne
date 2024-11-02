@@ -205,7 +205,7 @@ class MainMenuState extends MusicBeatState
 			switch(curColumn)
 			{
 				case CENTER:
-					else if(controls.UI_RIGHT_P && rightOption != null)
+					if(controls.UI_RIGHT_P && rightOption != null)
 					{
 						curColumn = RIGHT;
 						changeItem();
