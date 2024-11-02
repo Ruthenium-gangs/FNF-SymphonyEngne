@@ -3442,7 +3442,7 @@ class PlayState extends MusicBeatState
 	public var ratingFC:String;
 	public function RecalculateRating(badHit:Bool = false) {
 		setOnScripts('score', songScore);
-		setOnScripts('misses', songMisses);
+		setOnScripts('Phone breaks', songMisses);
 		setOnScripts('hits', songHits);
 		setOnScripts('combo', combo);
 
