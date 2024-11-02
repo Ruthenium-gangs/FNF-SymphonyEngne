@@ -17,7 +17,8 @@ class MainMenuState extends MusicBeatState
 	public static var psychEngineVersion:String = '0.7.8 (DEV BUILD)'; // This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 	public static var curColumn:MainMenuColumn = CENTER;
-	var allowMouse:Bool = true; //Turn this off to block mouse movement in menus
+	public static var fristStart:Bool = true;
+    var allowMouse:Bool = true; //Turn this off to block mouse movement in menus
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	var leftItem:FlxSprite;
@@ -25,14 +26,14 @@ class MainMenuState extends MusicBeatState
 
 	//Centered/Text options
 	var optionShit:Array<String> = [
-		'story_mode',
-		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
-		'credits'
+		'story_mode', // 0
+		'freeplay', // 1
+		//#if MODS_ALLOWED 'mods', #end 3
+		'credits' // 2
 	];
 
-	var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end;
-	var rightOption:String = 'options';
+	//var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end; 3
+	var rightOption:String = 'options'; //4
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -80,7 +81,7 @@ class MainMenuState extends MusicBeatState
 		{
 			var item:FlxSprite = createMenuItem(option, 0, (num * 140) + 90);
 			item.y += (4 - optionShit.length) * 70; // Offsets for when you have anything other than 4 items
-			item.screenCenter(X);
+			//  item.screenCenter(X);
 		}
 
 		if (leftOption != null)
@@ -114,8 +115,10 @@ class MainMenuState extends MusicBeatState
 
 		super.create();
 
-		FlxG.camera.follow(camFollow, null, 0.15);
+		//FlxG.camera.follow(camFollow, null, 0.15);
 	}
+
+    fristStart = false;
 
 	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
 	{
@@ -125,7 +128,25 @@ class MainMenuState extends MusicBeatState
 		menuItem.animation.addByPrefix('selected', '$name selected', 24, true);
 		menuItem.animation.play('idle');
 		menuItem.updateHitbox();
+
+
+        switch (i)
+        {
+            case 0:
+                menuItem.x = 34.95;
+                menuItem.y = 299.4;
+            
+             case 1:
+                menuItem.x = 193.75;
+                menuItem.y = 569.8;
+            
+            case 2:
+                menuItem.x = 393
+                menuItem.7 = 716.5
+        }
 		
+
+
 		menuItem.antialiasing = ClientPrefs.data.antialiasing;
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
