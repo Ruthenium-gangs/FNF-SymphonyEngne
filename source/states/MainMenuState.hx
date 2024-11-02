@@ -27,11 +27,9 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
-		'credits'
+	        'credits'
 	];
 
-	var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end;
 	var rightOption:String = 'options';
 
 	var magenta:FlxSprite;
@@ -83,8 +81,6 @@ class MainMenuState extends MusicBeatState
 			item.screenCenter(X);
 		}
 
-		if (leftOption != null)
-			leftItem = createMenuItem(leftOption, 60, 490);
 		if (rightOption != null)
 		{
 			rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
@@ -160,21 +156,10 @@ class MainMenuState extends MusicBeatState
 				{
 					case CENTER:
 						selectedItem = menuItems.members[curSelected];
-					case LEFT:
-						selectedItem = leftItem;
 					case RIGHT:
 						selectedItem = rightItem;
 				}
 
-				if(leftItem != null && FlxG.mouse.overlaps(leftItem))
-				{
-					allowMouse = true;
-					if(selectedItem != leftItem)
-					{
-						curColumn = LEFT;
-						changeItem();
-					}
-				}
 				else if(rightItem != null && FlxG.mouse.overlaps(rightItem))
 				{
 					allowMouse = true;
@@ -220,21 +205,9 @@ class MainMenuState extends MusicBeatState
 			switch(curColumn)
 			{
 				case CENTER:
-					if(controls.UI_LEFT_P && leftOption != null)
-					{
-						curColumn = LEFT;
-						changeItem();
-					}
 					else if(controls.UI_RIGHT_P && rightOption != null)
 					{
 						curColumn = RIGHT;
-						changeItem();
-					}
-
-				case LEFT:
-					if(controls.UI_RIGHT_P)
-					{
-						curColumn = CENTER;
 						changeItem();
 					}
 
@@ -272,10 +245,6 @@ class MainMenuState extends MusicBeatState
 						case CENTER:
 							option = optionShit[curSelected];
 							item = menuItems.members[curSelected];
-
-						case LEFT:
-							option = leftOption;
-							item = leftItem;
 
 						case RIGHT:
 							option = rightOption;
@@ -355,8 +324,6 @@ class MainMenuState extends MusicBeatState
 		{
 			case CENTER:
 				selectedItem = menuItems.members[curSelected];
-			case LEFT:
-				selectedItem = leftItem;
 			case RIGHT:
 				selectedItem = rightItem;
 		}
