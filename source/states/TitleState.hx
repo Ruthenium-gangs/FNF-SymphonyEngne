@@ -566,32 +566,37 @@ class TitleState extends MusicBeatState
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
-					createCoolText(['Psych Engine by'], 40);
+					createCoolText(['Symphony Engine by'], 40);
 				case 4:
-					addMoreText('Shadow Mario', 40);
-					addMoreText('Riveren', 40);
+					addMoreText('Daves The Bone', 40);
+					addMoreText('BillysussyAhhmungus', 40);
 				case 5:
-					deleteCoolText();
+					createCoolText(['Psych Engine by'], 40);
 				case 6:
-					createCoolText(['Not associated', 'with'], -40);
+					addMoreText('Shadow Mario', 40);
+					addMoreText('yeah', 40);
+				case 7:
+					deleteCoolText();
 				case 8:
+					createCoolText(['Not associated', 'with'], -40);
+				case 9:
 					addMoreText('newgrounds', -40);
 					ngSpr.visible = true;
-				case 9:
+				case 10:
 					deleteCoolText();
 					ngSpr.visible = false;
 				case 10:
 					createCoolText([curWacky[0]]);
-				case 12:
+				case 11:
 					addMoreText(curWacky[1]);
-				case 13:
+				case 12:
 					deleteCoolText();
+				case 13:
+					addMoreText('Dave and Bambi:');
 				case 14:
-					addMoreText('Friday');
+					addMoreText('Fan Chart');
 				case 15:
-					addMoreText('Night');
-				case 16:
-					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+					addMoreText('Collection'); // credTextShit.text += '\nFunkin';
 
 				case 17:
 					skipIntro();
