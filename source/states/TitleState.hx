@@ -225,7 +225,7 @@ class TitleState extends MusicBeatState
 		credTextShit.screenCenter();
 		credTextShit.visible = false;
 
-		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
+		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('psychengine_logo'));
 		ngSpr.visible = false;
 		ngSpr.setGraphicSize(Std.int(ngSpr.width * 0.8));
 		ngSpr.updateHitbox();
@@ -568,34 +568,29 @@ class TitleState extends MusicBeatState
 				case 2:
 					createCoolText(['Symphony Engine by'], 40);
 				case 4:
-					addMoreText('Daves The Bone', 40);
-					addMoreText('BillysussyAhhmungus', 40);
+					addMoreText('Team Ruthenium', 40);
+					addMoreText('Presents', 40);
 				case 5:
-					createCoolText(['Psych Engine by'], 40);
-				case 6:
-					addMoreText('Shadow Mario', 40);
-					addMoreText('yeah', 40);
-				case 7:
 					deleteCoolText();
+				case 6:
+					createCoolText(['forked', 'from'], -40);
 				case 8:
-					createCoolText(['Not associated', 'with'], -40);
-				case 9:
-					addMoreText('newgrounds', -40);
+					addMoreText('Psych Engine', -40);
 					ngSpr.visible = true;
-				case 10:
+				case 9:
 					deleteCoolText();
 					ngSpr.visible = false;
 				case 10:
 					createCoolText([curWacky[0]]);
-				case 11:
-					addMoreText(curWacky[1]);
 				case 12:
-					deleteCoolText();
+					addMoreText(curWacky[1]);
 				case 13:
-					addMoreText('Fryday');
+					deleteCoolText();
 				case 14:
-					addMoreText('Night');
+					addMoreText('Friday');
 				case 15:
+					addMoreText('Night');
+				case 16:
 					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
 
 				case 17:
